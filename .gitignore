@@ -1,0 +1,3 @@
+# Ignore credentials and more.
+/.env
+/node_modules
