@@ -6,16 +6,16 @@ const IndexProjects = async () => {
 
     return projects.rows;
   } catch (error) {
-    next(error)
+    console.log(error)
   }
 }
 
 const CreateProject = async (req) => {
-  const { code, status, type } = req;
+  const { name } = req;
 
   try {
-    const result = await schema.query("INSERT INTO projects (code, status, type) VALUES ($1, $2, $3) RETURNING *", [
-      code, status, type
+    const result = await schema.query("INSERT INTO projects (name) VALUES ($1) RETURNING *", [
+      name
     ])
   
     return result.rows[0]

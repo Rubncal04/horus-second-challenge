@@ -6,23 +6,37 @@ const typeDefs = [
  
     type Query {
       projects: [Project]
+      devices(id: ID): [Device]
+      device(project_id: ID!, id: ID!): Device
     }
 
     type Project {
       id: ID
-      code: String!
-      status: String
+      name: String
+    }
+
+    type Device {
+      id: ID
+      project_id: ID
+      code: Int!
       type: String
+      status: String
     }
 
     type Mutation {
       createProject(input: ProjectInput): Project
+      createDevice(input: DeviceInput): Device
     }
 
-    input ProjectInput {
+    input DeviceInput {
+      project_id: ID!
       code: Int!
       status: String
       type: String
+    }
+
+    input ProjectInput {
+      name: String
     }
   `
 ]
