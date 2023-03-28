@@ -12,7 +12,7 @@ const IndexProjects = async () => {
 
 const ShowProject = async (id) => {
   try {
-    const project = await schema.query("SELECT devices.id as iddevice, * from projects left join devices on projects.id = devices.project_id where projects.id = $1", [id])
+    const project = await schema.query("SELECT devices.id as device_id, * from projects left join devices on projects.id = devices.project_id where projects.id = $1", [id])
 
     return project.rows;
   } catch (error) {
