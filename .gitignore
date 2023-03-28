@@ -1,3 +1,6 @@
 # Ignore credentials and more.
 /.env
 /node_modules
+fly.toml
+Dockerfile
+.dockerignore
