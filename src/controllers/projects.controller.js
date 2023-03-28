@@ -10,6 +10,16 @@ const IndexProjects = async () => {
   }
 }
 
+const ShowProject = async (id) => {
+  try {
+    const project = await schema.query("SELECT devices.id as iddevice, * from projects left join devices on projects.id = devices.project_id where projects.id = $1", [id])
+
+    return project.rows;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const CreateProject = async (req) => {
   const { name } = req;
 
@@ -25,5 +35,5 @@ const CreateProject = async (req) => {
 }
 
 module.exports = {
-  CreateProject, IndexProjects
+  CreateProject, IndexProjects, ShowProject
 }

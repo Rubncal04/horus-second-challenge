@@ -1,10 +1,13 @@
-const { CreateProject, IndexProjects } = require('./controllers/projects.controller')
+const { CreateProject, IndexProjects, ShowProject } = require('./controllers/projects.controller')
 const { IndexDevices, CreateDevice, ShowDevice } = require('./controllers/devices.controller')
 
 const resolvers = {
   Query: {
     projects: () => {
       return IndexProjects();
+    },
+    project: (_, { id }) => {
+      return ShowProject(id)
     },
     devices: (_, { id }) => {
       return IndexDevices(id)

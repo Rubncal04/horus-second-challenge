@@ -6,7 +6,8 @@ const typeDefs = [
  
     type Query {
       projects: [Project]
-      devices(id: ID): [Device]
+      project(id: ID!): [ProjectDevice]
+      devices(id: ID!): [Device]
       device(project_id: ID!, id: ID!): Device
     }
 
@@ -18,6 +19,15 @@ const typeDefs = [
     type Device {
       id: ID
       project_id: ID
+      code: Int!
+      type: String
+      status: String
+    }
+
+    type ProjectDevice {
+      id: ID
+      iddevice: ID
+      name: String
       code: Int!
       type: String
       status: String
