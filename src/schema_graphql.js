@@ -25,7 +25,6 @@ const typeDefs = [
     }
 
     type ProjectDevice {
-      id: ID
       device_id: ID
       name: String
       code: Int!
